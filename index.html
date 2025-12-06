@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>teletexttt | Experiencia Digital</title>
+  <style>
+    :root {
+      --bg: #000;
+      --text: #ffffff;
+      --accent: #00ff00;
+      --accent2: #ff00ff;
+      --accent3: #00ff37;
+      --overlay: rgba(0, 0, 0, 0.85);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+  background: url('fondo.png') center center / cover no-repeat fixed;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,255,0,0.2);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+
+    main {
+      padding-top: 5rem;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      color: var(--accent3);
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    section p {
+      max-width: 800px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .gallery img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid rgba(0,255,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      border: 2px solid var(--accent);
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--overlay);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 999;
+    }
+
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: row;
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid var(--accent2);
+      border-radius: 12px;
+      max-width: 900px;
+      width: 90%;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,255,0,0.2);
+      animation: fadeInUp 0.5s ease;
+    }
+
+    .modal-content img {
+      width: 50%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .modal-text {
+      padding: 2rem;
+      width: 50%;
+      text-align: left;
+      color: var(--text);
+      overflow-y: auto;
+    }
+
+    .modal-text h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.5rem;
+      color: var(--accent2);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      border-top: 1px solid rgba(0,255,0,0.3);
+      color: var(--accent2);
+      background: rgba(0,0,0,0.7);
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        flex-direction: column;
+      }
+      .modal-content img,
+      .modal-text {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>teletexttt</h1>
+  </header>
+
+  <main>
+    <!-- SECCIÓN 1 -->
+    <section id="sec1">
+      <h2>Experiencia digital</h2>
+      <p>Transformamos tus ideas en realidad. En Teletextlab, somos apasionados por la tecnología y el diseño. Nuestro equipo se especializa en el desarrollo web, la administración de WordPress, la creación de videojuegos y el diseño gráfico. Trabajamos de la mano con nuestros clientes para convertir sus ideas en proyectos innovadores que impacten.</p>
+      <div class="gallery">
+        <img src="1a.png" alt="Experiencia digital 1">
+        <img src="1b.png" alt="Experiencia digital 2">
+        <img src="1c.png" alt="Experiencia digital 3">
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section id="sec2">
+      <h2>Desarrollo web personalizado</h2>
+      <p>Transforma tus ideas en un sitio web atractivo y funcional. Nuestro servicio de desarrollo web personalizado se adapta a tus necesidades y objetivos...</p>
+      <div class="gallery">
+        <img src="2a.png" alt="Desarrollo web 1">
+        <img src="2b.png" alt="Desarrollo web 2">
+        <img src="2c.png" alt="Desarrollo web 3">
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section id="sec3">
+      <h2>Administración de WordPress</h2>
+      <p>La administración de WordPress es esencial para mantener tu sitio web en óptimas condiciones. Incluye la gestión de actualizaciones, seguridad, y optimización del rendimiento.</p>
+      <div class="gallery">
+        <img src="3a.png" alt="WordPress 1">
+        <img src="3b.png" alt="WordPress 2">
+        <img src="3c.png" alt="WordPress 3">
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4 -->
+    <section id="sec4">
+      <h2>Creación de videojuegos</h2>
+      <p>Sumérgete en el mundo de los videojuegos con nuestro servicio de creación de videojuegos. Desde la conceptualización hasta el lanzamiento, trabajamos contigo para desarrollar experiencias interactivas que cautiven a los jugadores.</p>
+      <div class="gallery">
+        <img src="4a.png" alt="Videojuegos 1">
+        <img src="4b.png" alt="Videojuegos 2">
+        <img src="4c.png" alt="Videojuegos 3">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 teletexttt — Todos los derechos reservados.
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="">
+      <div class="modal-text" id="modalText">
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const reveal = () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) sec.classList.add("visible");
+      });
+    };
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    // Modal logic
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalText = document.getElementById("modalText");
+    const closeBtn = document.getElementById("closeBtn");
+
+    const fullTexts = {
+      sec1: {
+        title: "Experiencia digital",
+        text: "En Teletextlab, somos apasionados por la tecnología y el diseño..."
+      },
+      sec2: {
+        title: "Desarrollo web personalizado",
+        text: "Nuestro servicio de desarrollo web personalizado se adapta a tus necesidades..."
+      },
+      sec3: {
+        title: "Administración de WordPress",
+        text: "La administración de WordPress es esencial para mantener tu sitio web en óptimas condiciones..."
+      },
+      sec4: {
+        title: "Creación de videojuegos",
+        text: "Desde la conceptualización hasta el lanzamiento, desarrollamos experiencias interactivas que cautivan..."
+      }
+    };
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+      img.addEventListener("click", e => {
+        const sectionId = e.target.closest("section").id;
+        modalImg.src = e.target.src.replace(/a|b|c/, ""); // abre imagen principal (1.png, 2.png...)
+        modalText.querySelector("h3").textContent = fullTexts[sectionId].title;
+        modalText.querySelector("p").textContent = fullTexts[sectionId].text;
+        modal.classList.add("active");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.classList.remove("active");
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.remove("active");
+    });
+  </script>
+</body>
+</html>
