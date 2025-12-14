@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emiliano Maidana | Desarrollo y Diseño</title>
   
-  <!-- ========== FAVICON ========== -->
+  <!-- FAVICON -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300ff9d%22>E</text></svg>">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300ff9d%22>E</text></svg>">
   
-  <!-- ========== OPEN GRAPH / REDES SOCIALES ========== -->
+  <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://teletexttt.github.io/portfolio/">
   <meta property="og:title" content="Emiliano Maidana | Desarrollador y Diseñador">
@@ -18,34 +17,304 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   
-  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://teletexttt.github.io/portfolio/">
   <meta name="twitter:title" content="Emiliano Maidana | Desarrollador y Diseñador">
   <meta name="twitter:description" content="Construyo experiencias digitales a medida, desde webs dinámicas hasta videojuegos inmersivos.">
   <meta name="twitter:image" content="https://raw.githubusercontent.com/teletexttt/portfolio/main/social-preview.jpg">
-  <meta name="twitter:image:alt" content="Portfolio de Emiliano Maidana - Desarrollador y Diseñador">
   
-  <!-- Descripción general para SEO -->
   <meta name="description" content="Portfolio profesional de Emiliano Maidana. Desarrollo web, diseño gráfico y creación de videojuegos.">
   
+  <!-- ESTILOS INLINE (TODO EN UNO) -->
   <style>
-    /* [TODO EL CSS PERMANECE IGUAL] */
-    :root {
-      --bg: #0f0f0f;
-      --text: #f0f0f0;
-      --text-light: #b0b0b0;
-      --accent: #00ff9d;
-      --accent-glow: rgba(0, 255, 157, 0.2);
-      --accent2: #8a2be2;
-      --card-bg: rgba(25, 25, 35, 0.7);
-      --overlay: rgba(10, 10, 15, 0.92);
+    /* RESET BÁSICO */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0a0a; 
+      color: #f0f0f0;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    /* ... resto del CSS ... */
+    
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00ff9d;
+      text-decoration: none;
+    }
+    
+    .logo span { color: #fff; }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover { color: #00ff9d; }
+    
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      padding-top: 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #fff, #00ff9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .subtitle {
+      color: #00ff9d;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    
+    .tagline {
+      font-size: 1.2rem;
+      color: #aaa;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: #00ff9d;
+      color: #000;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 5px 20px rgba(0, 255, 157, 0.3);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 255, 157, 0.4);
+    }
+    
+    /* LOGROS */
+    .achievements {
+      padding: 5rem 2rem;
+      background: rgba(20, 20, 30, 0.3);
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #fff;
+    }
+    
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
+    .achievement-card {
+      background: rgba(30, 30, 40, 0.7);
+      border-radius: 15px;
+      padding: 2.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s;
+    }
+    
+    .achievement-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 255, 157, 0.3);
+    }
+    
+    .achievement-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(0, 255, 157, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.8rem;
+    }
+    
+    .achievement-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #00ff9d;
+      margin-bottom: 0.5rem;
+    }
+    
+    .achievement-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .achievement-desc {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    
+    /* PROYECTOS */
+    .projects-section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .projects-section > h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .projects-section > p {
+      text-align: center;
+      color: #aaa;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+    }
+    
+    /* GALERÍA SIMPLIFICADA */
+    .project-gallery {
+      margin-bottom: 4rem;
+      padding: 2rem;
+      background: rgba(20, 20, 20, 0.5);
+      border-radius: 15px;
+    }
+    
+    .project-gallery h2 {
+      color: #00ff9d;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .project-gallery p {
+      text-align: center;
+      color: #ccc;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+    
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+      border-color: #00ff9d;
+    }
+    
+    /* CONTACTO */
+    .contact-section {
+      padding: 5rem 2rem;
+      background: rgba(15, 15, 25, 0.7);
+      text-align: center;
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+    
+    .contact-item h4 {
+      color: #00ff9d;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-item p {
+      color: #aaa;
+      line-height: 1.8;
+    }
+    
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(10, 10, 15, 0.9);
+      color: #888;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .subtitle { font-size: 1.3rem; }
+      nav ul { gap: 1rem; }
+      header { padding: 1rem; flex-direction: column; gap: 1rem; }
+      .hero { padding-top: 120px; }
+      .gallery img { max-width: 100%; }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 2rem; }
+      .achievements-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <!-- Navegación -->
+  <!-- NAVEGACIÓN -->
   <header>
     <a href="#" class="logo">teletext<span>.lab</span></a>
     <nav>
@@ -58,7 +327,7 @@
     </nav>
   </header>
 
-  <!-- Sección Hero / Principal -->
+  <!-- HERO -->
   <section class="hero" id="home">
     <h1>Emiliano Maidana</h1>
     <p class="subtitle">Desarrollador y Diseñador</p>
@@ -66,36 +335,24 @@
     <a href="#proyectos" class="cta-button">Ver mis proyectos</a>
   </section>
 
-  <!-- Sección de Logros -->
+  <!-- LOGROS -->
   <section class="achievements" id="logros">
     <h2 class="section-title">Impacto en Cifras</h2>
     <div class="achievements-grid">
       <div class="achievement-card">
-        <div class="achievement-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 14v-4l5 2-5 2zm7-5v10h-14v-10h14zm-1-3h-12c-0.552 0-1 0.448-1 1v14c0 0.552 0.448 1 1 1h12c0.552 0 1-0.448 1-1v-14c0-0.552-0.448-1-1-1z"/>
-          </svg>
-        </div>
+        <div class="achievement-icon">📻</div>
         <div class="achievement-number">+3</div>
         <h3 class="achievement-title">teletext radio</h3>
         <p class="achievement-desc">Plataforma online</p>
       </div>
       <div class="achievement-card">
-        <div class="achievement-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4h-2l2 4h-3l-2-4h-1c-1.1 0-2 0.9-2 2v12c0 1.1 0.9 2 2 2h16c1.1 0 2-0.9 2-2v-12c0-1.1-0.9-2-2-2h-1z"/>
-          </svg>
-        </div>
+        <div class="achievement-icon">🎬</div>
         <div class="achievement-number">+5</div>
         <h3 class="achievement-title">web cine</h3>
         <p class="achievement-desc">Sitios interactivos</p>
       </div>
       <div class="achievement-card">
-        <div class="achievement-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M19 3h-4.18c-0.42-1.16-1.52-2-2.82-2s-2.4 0.84-2.82 2h-4.18c-1.1 0-2 0.9-2 2v14c0 1.1 0.9 2 2 2h14c1.1 0 2-0.9 2-2v-14c0-1.1-0.9-2-2-2zm-7 0c0.55 0 1 0.45 1 1s-0.45 1-1 1-1-0.45-1-1 0.45-1 1-1zm-5 16h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2v-2h2v2z"/>
-          </svg>
-        </div>
+        <div class="achievement-icon">📰</div>
         <div class="achievement-number">+8</div>
         <h3 class="achievement-title">diario digital</h3>
         <p class="achievement-desc">Publicaciones web</p>
@@ -103,61 +360,61 @@
     </div>
   </section>
 
-  <!-- Sección de Proyectos Destacados -->
+  <!-- PROYECTOS -->
   <section class="projects-section" id="proyectos">
     <h2>Proyectos Destacados</h2>
     <p>Una selección de mi trabajo en desarrollo web, gestión de contenido y creación interactiva.</p>
 
-    <!-- SECCIÓN 1 - EXPERIENCIA DIGITAL -->
+    <!-- PROYECTO 1 -->
     <section class="project-gallery" id="sec1">
       <h2>Experiencia digital</h2>
-      <p>Transformamos tus ideas en realidad. En Teletextlab, somos apasionados por la tecnología y el diseño. Nuestro equipo se especializa en el desarrollo web, la administración de WordPress, la creación de videojuegos y el diseño gráfico. Trabajamos de la mano con nuestros clientes para convertir sus ideas en proyectos innovadores que impacten.</p>
+      <p>Transformamos tus ideas en realidad. En Teletextlab, somos apasionados por la tecnología y el diseño.</p>
       <div class="gallery">
-        <!-- RUTAS CORREGIDAS: PNG en subcarpetas -->
-        <img src="assets/img/proyectos/experiencia-digital/1a.png" alt="Experiencia digital 1">
-        <img src="assets/img/proyectos/experiencia-digital/1b.png" alt="Experiencia digital 2">
-        <img src="assets/img/proyectos/experiencia-digital/1c.png" alt="Experiencia digital 3">
+        <!-- USA LAS RUTAS CORRECTAS SEGÚN DONDE TENGAS LAS IMÁGENES -->
+        <img src="1a.png" alt="Experiencia digital 1" onclick="openModal(this)">
+        <img src="1b.png" alt="Experiencia digital 2" onclick="openModal(this)">
+        <img src="1c.png" alt="Experiencia digital 3" onclick="openModal(this)">
       </div>
     </section>
 
-    <!-- SECCIÓN 2 - DESARROLLO WEB -->
+    <!-- PROYECTO 2 -->
     <section class="project-gallery" id="sec2">
       <h2>Desarrollo web personalizado</h2>
-      <p>Transforma tus ideas en un sitio web atractivo y funcional. Nuestro servicio de desarrollo web personalizado se adapta a tus necesidades y objetivos, asegurando una presencia en línea profesional y efectiva.</p>
+      <p>Transforma tus ideas en un sitio web atractivo y funcional.</p>
       <div class="gallery">
-        <img src="assets/img/proyectos/desarrollo-web/2a.png" alt="Desarrollo web 1">
-        <img src="assets/img/proyectos/desarrollo-web/2b.png" alt="Desarrollo web 2">
-        <img src="assets/img/proyectos/desarrollo-web/2c.png" alt="Desarrollo web 3">
+        <img src="2a.png" alt="Desarrollo web 1" onclick="openModal(this)">
+        <img src="2b.png" alt="Desarrollo web 2" onclick="openModal(this)">
+        <img src="2c.png" alt="Desarrollo web 3" onclick="openModal(this)">
       </div>
     </section>
 
-    <!-- SECCIÓN 3 - WORDPRESS -->
+    <!-- PROYECTO 3 -->
     <section class="project-gallery" id="sec3">
       <h2>Administración de WordPress</h2>
-      <p>La administración de WordPress es esencial para mantener tu sitio web en óptimas condiciones. Incluye la gestión de actualizaciones, seguridad, y optimización del rendimiento, garantizando que tu sitio siempre esté actualizado y seguro.</p>
+      <p>La administración de WordPress es esencial para mantener tu sitio web en óptimas condiciones.</p>
       <div class="gallery">
-        <img src="assets/img/proyectos/wordpress/3a.png" alt="WordPress 1">
-        <img src="assets/img/proyectos/wordpress/3b.png" alt="WordPress 2">
-        <img src="assets/img/proyectos/wordpress/3c.png" alt="WordPress 3">
+        <img src="3a.png" alt="WordPress 1" onclick="openModal(this)">
+        <img src="3b.png" alt="WordPress 2" onclick="openModal(this)">
+        <img src="3c.png" alt="WordPress 3" onclick="openModal(this)">
       </div>
     </section>
 
-    <!-- SECCIÓN 4 - VIDEOJUEGOS -->
+    <!-- PROYECTO 4 -->
     <section class="project-gallery" id="sec4">
       <h2>Creación de videojuegos</h2>
-      <p>Sumérgete en el mundo de los videojuegos con nuestro servicio de creación de videojuegos. Desde la conceptualización hasta el lanzamiento, trabajamos contigo para desarrollar experiencias interactivas que cautiven a los jugadores.</p>
+      <p>Sumérgete en el mundo de los videojuegos con nuestro servicio de creación de videojuegos.</p>
       <div class="gallery">
-        <img src="assets/img/proyectos/videojuegos/4a.png" alt="Videojuegos 1">
-        <img src="assets/img/proyectos/videojuegos/4b.png" alt="Videojuegos 2">
-        <img src="assets/img/proyectos/videojuegos/4c.png" alt="Videojuegos 3">
+        <img src="4a.png" alt="Videojuegos 1" onclick="openModal(this)">
+        <img src="4b.png" alt="Videojuegos 2" onclick="openModal(this)">
+        <img src="4c.png" alt="Videojuegos 3" onclick="openModal(this)">
       </div>
     </section>
   </section>
 
-  <!-- Sección de Contacto -->
+  <!-- CONTACTO -->
   <section class="contact-section" id="contacto">
     <h2 class="section-title">Conectemos</h2>
-    <p style="max-width: 600px; margin: 0 auto 2rem; color: var(--text-light);">¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte a hacerlo realidad.</p>
+    <p style="max-width: 600px; margin: 0 auto 2rem; color: #aaa;">¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte a hacerlo realidad.</p>
     <div class="contact-info">
       <div class="contact-item">
         <h4>Ubicación</h4>
@@ -178,108 +435,41 @@
     © 2025 teletexttt — Todos los derechos reservados.
   </footer>
 
-  <!-- MODAL -->
-  <div class="modal" id="modal">
-    <button class="close-btn" id="closeBtn">&times;</button>
-    <div class="modal-content">
-      <img id="modalImg" src="" alt="">
-      <div class="modal-text" id="modalText">
-        <h3></h3>
-        <p></p>
-      </div>
-    </div>
+  <!-- MODAL SIMPLE -->
+  <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center;">
+    <img id="modalImage" src="" alt="" style="max-width:90%; max-height:90%; border-radius:10px;">
+    <button onclick="closeModal()" style="position:absolute; top:20px; right:30px; background:none; border:none; color:#00ff9d; font-size:3rem; cursor:pointer;">×</button>
   </div>
 
   <script>
-    // [TODO EL JAVASCRIPT PERMANECE IGUAL]
-    // Navegación suave, modal, etc.
-    document.querySelectorAll('nav a, .cta-button').forEach(anchor => {
+    // Navegación suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if(targetId.startsWith('#')) {
-          const targetElement = document.querySelector(targetId);
-          if(targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: 'smooth'
-            });
-          }
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
         }
       });
     });
-
-    // Animación al hacer scroll
-    const projectSections = document.querySelectorAll(".project-gallery");
-    const revealOnScroll = () => {
-      projectSections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 80) {
-          sec.style.opacity = 1;
-          sec.style.transform = 'translateY(0)';
-        }
-      });
-    };
     
-    projectSections.forEach(sec => {
-      sec.style.opacity = 0;
-      sec.style.transform = 'translateY(20px)';
-      sec.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    });
+    // Modal simple
+    function openModal(img) {
+      document.getElementById('modalImage').src = img.src;
+      document.getElementById('imageModal').style.display = 'flex';
+    }
     
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-
-    // Modal logic
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const modalText = document.getElementById("modalText");
-    const closeBtn = document.getElementById("closeBtn");
-
-    const fullTexts = {
-      sec1: {
-        title: "Experiencia digital",
-        text: "En Teletextlab, somos apasionados por la tecnología y el diseño. Nuestro equipo se especializa en el desarrollo web, la administración de WordPress, la creación de videojuegos y el diseño gráfico. Trabajamos de la mano con nuestros clientes para convertir sus ideas en proyectos innovadores que impacten."
-      },
-      sec2: {
-        title: "Desarrollo web personalizado",
-        text: "Transforma tus ideas en un sitio web atractivo y funcional. Nuestro servicio de desarrollo web personalizado se adapta a tus necesidades y objetivos, asegurando una presencia en línea profesional y efectiva."
-      },
-      sec3: {
-        title: "Administración de WordPress",
-        text: "La administración de WordPress es esencial para mantener tu sitio web en óptimas condiciones. Incluye la gestión de actualizaciones, seguridad, y optimización del rendimiento, garantizando que tu sitio siempre esté actualizado y seguro."
-      },
-      sec4: {
-        title: "Creación de videojuegos",
-        text: "Desde la conceptualización hasta el lanzamiento, trabajamos contigo para desarrollar experiencias interactivas que cautiven a los jugadores. Utilizamos las mejores herramientas y metodologías para crear videojuegos únicos."
-      }
-    };
-
-    document.querySelectorAll(".gallery img").forEach(img => {
-      img.addEventListener("click", e => {
-        const sectionId = e.target.closest("section").id;
-        modalImg.src = e.target.src;
-        modalText.querySelector("h3").textContent = fullTexts[sectionId].title;
-        modalText.querySelector("p").textContent = fullTexts[sectionId].text;
-        modal.classList.add("active");
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      modal.classList.remove("active");
-      document.body.style.overflow = 'auto';
-    });
-
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.classList.remove("active");
-        document.body.style.overflow = 'auto';
-      }
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+    
+    // Cerrar modal con ESC
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeModal();
     });
   </script>
 </body>
 </html>
-
-
-
