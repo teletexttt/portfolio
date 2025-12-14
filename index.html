@@ -296,6 +296,47 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
     
+    /* MODAL PARA IMÁGENES */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      border: 2px solid rgba(0, 255, 157, 0.3);
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
+    }
+    
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #00ff9d;
+      font-size: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s, transform 0.3s;
+      background: none;
+      border: none;
+      z-index: 2001;
+    }
+    
+    .close:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+    
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
@@ -304,6 +345,7 @@
       header { padding: 1rem; flex-direction: column; gap: 1rem; }
       .hero { padding-top: 120px; }
       .gallery img { max-width: 100%; }
+      .close { font-size: 40px; top: 15px; right: 20px; }
     }
     
     @media (max-width: 480px) {
@@ -370,10 +412,9 @@
       <h2>Experiencia digital</h2>
       <p>Transformamos tus ideas en realidad. En Teletextlab, somos apasionados por la tecnología y el diseño.</p>
       <div class="gallery">
-        <!-- USA LAS RUTAS CORRECTAS SEGÚN DONDE TENGAS LAS IMÁGENES -->
-        <img src="1a.png" alt="Experiencia digital 1" onclick="openModal(this)">
-        <img src="1b.png" alt="Experiencia digital 2" onclick="openModal(this)">
-        <img src="1c.png" alt="Experiencia digital 3" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/1a.png" alt="Experiencia digital 1" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/1b.png" alt="Experiencia digital 2" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/1c.png" alt="Experiencia digital 3" onclick="openModal(this)">
       </div>
     </section>
 
@@ -382,9 +423,9 @@
       <h2>Desarrollo web personalizado</h2>
       <p>Transforma tus ideas en un sitio web atractivo y funcional.</p>
       <div class="gallery">
-        <img src="2a.png" alt="Desarrollo web 1" onclick="openModal(this)">
-        <img src="2b.png" alt="Desarrollo web 2" onclick="openModal(this)">
-        <img src="2c.png" alt="Desarrollo web 3" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/2a.png" alt="Desarrollo web 1" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/2b.png" alt="Desarrollo web 2" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/2c.png" alt="Desarrollo web 3" onclick="openModal(this)">
       </div>
     </section>
 
@@ -393,9 +434,9 @@
       <h2>Administración de WordPress</h2>
       <p>La administración de WordPress es esencial para mantener tu sitio web en óptimas condiciones.</p>
       <div class="gallery">
-        <img src="3a.png" alt="WordPress 1" onclick="openModal(this)">
-        <img src="3b.png" alt="WordPress 2" onclick="openModal(this)">
-        <img src="3c.png" alt="WordPress 3" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/3a.png" alt="WordPress 1" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/3b.png" alt="WordPress 2" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/3c.png" alt="WordPress 3" onclick="openModal(this)">
       </div>
     </section>
 
@@ -404,9 +445,9 @@
       <h2>Creación de videojuegos</h2>
       <p>Sumérgete en el mundo de los videojuegos con nuestro servicio de creación de videojuegos.</p>
       <div class="gallery">
-        <img src="4a.png" alt="Videojuegos 1" onclick="openModal(this)">
-        <img src="4b.png" alt="Videojuegos 2" onclick="openModal(this)">
-        <img src="4c.png" alt="Videojuegos 3" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/4a.png" alt="Videojuegos 1" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/4b.png" alt="Videojuegos 2" onclick="openModal(this)">
+        <img src="assets/img/proyectos/experiencia-digital/4c.png" alt="Videojuegos 3" onclick="openModal(this)">
       </div>
     </section>
   </section>
@@ -435,10 +476,10 @@
     © 2025 teletexttt — Todos los derechos reservados.
   </footer>
 
-  <!-- MODAL SIMPLE -->
-  <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center;">
-    <img id="modalImage" src="" alt="" style="max-width:90%; max-height:90%; border-radius:10px;">
-    <button onclick="closeModal()" style="position:absolute; top:20px; right:30px; background:none; border:none; color:#00ff9d; font-size:3rem; cursor:pointer;">×</button>
+  <!-- MODAL MEJORADA -->
+  <div id="imageModal" class="modal">
+    <button class="close" onclick="closeModal()">&times;</button>
+    <img class="modal-content" id="modalImage" alt="">
   </div>
 
   <script>
@@ -456,21 +497,31 @@
       });
     });
     
-    // Modal simple
+    // Modal para imágenes
     function openModal(img) {
       document.getElementById('modalImage').src = img.src;
       document.getElementById('imageModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // Evita scroll
     }
     
     function closeModal() {
       document.getElementById('imageModal').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Restaura scroll
     }
     
     // Cerrar modal con ESC
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape') closeModal();
     });
+    
+    // Cerrar modal al hacer clic fuera de la imagen
+    document.getElementById('imageModal').addEventListener('click', function(e) {
+      if(e.target === this) {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
+
 
