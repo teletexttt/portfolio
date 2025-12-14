@@ -6,7 +6,7 @@
   <title>Emiliano Maidana Portfolio</title>
   
   <!-- FAVICON -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300ff9d%22>E</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300ff9d%22>{e}</text></svg>">
   
   <!-- OPEN GRAPH -->
   <meta property="og:type" content="website">
@@ -296,47 +296,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
     
-    /* MODAL PARA IMÁGENES */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.95);
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .modal-content {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-      border: 2px solid rgba(0, 255, 157, 0.3);
-      box-shadow: 0 0 30px rgba(0, 255, 157, 0.2);
-    }
-    
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: #00ff9d;
-      font-size: 50px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s, transform 0.3s;
-      background: none;
-      border: none;
-      z-index: 2001;
-    }
-    
-    .close:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
-    
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
@@ -345,7 +304,6 @@
       header { padding: 1rem; flex-direction: column; gap: 1rem; }
       .hero { padding-top: 120px; }
       .gallery img { max-width: 100%; }
-      .close { font-size: 40px; top: 15px; right: 20px; }
     }
     
     @media (max-width: 480px) {
@@ -467,7 +425,7 @@
       </div>
       <div class="contact-item">
         <h4>Contacto Directo</h4>
-        <p>hola@teletexttt.com<br>+54 9 2920 123456</p>
+        <p>emaidanaweb@gmail.com<br>+54 9 2920 123456</p>
       </div>
     </div>
   </section>
@@ -476,10 +434,10 @@
     © 2025 teletexttt — Todos los derechos reservados.
   </footer>
 
-  <!-- MODAL MEJORADA -->
-  <div id="imageModal" class="modal">
-    <button class="close" onclick="closeModal()">&times;</button>
-    <img class="modal-content" id="modalImage" alt="">
+  <!-- MODAL SIMPLE (VERSIÓN ANTERIOR) -->
+  <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center;">
+    <img id="modalImage" src="" alt="" style="max-width:90%; max-height:90%; border-radius:10px; border:2px solid rgba(0,255,157,0.3);">
+    <button onclick="closeModal()" style="position:absolute; top:20px; right:30px; background:none; border:none; color:#00ff9d; font-size:3rem; cursor:pointer; transition:color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#00ff9d'">×</button>
   </div>
 
   <script>
@@ -497,31 +455,20 @@
       });
     });
     
-    // Modal para imágenes
+    // Modal simple (VERSIÓN ANTERIOR)
     function openModal(img) {
       document.getElementById('modalImage').src = img.src;
       document.getElementById('imageModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden'; // Evita scroll
     }
     
     function closeModal() {
       document.getElementById('imageModal').style.display = 'none';
-      document.body.style.overflow = 'auto'; // Restaura scroll
     }
     
     // Cerrar modal con ESC
     document.addEventListener('keydown', (e) => {
       if(e.key === 'Escape') closeModal();
     });
-    
-    // Cerrar modal al hacer clic fuera de la imagen
-    document.getElementById('imageModal').addEventListener('click', function(e) {
-      if(e.target === this) {
-        closeModal();
-      }
-    });
   </script>
 </body>
 </html>
-
-
